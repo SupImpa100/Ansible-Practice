@@ -14,5 +14,5 @@ packages:
   - vim
   - wget
 
-system_timezone: Utc/UTC
+system_timezone: Etc/UTC
 
