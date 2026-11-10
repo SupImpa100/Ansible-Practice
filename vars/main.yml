@@ -1,0 +1,18 @@
+---
+
+admin_user: admin
+
+admin_group: sudo
+
+ansible_pactice_repo: https://github.com/SupImpa100/Ansible-Practice.git
+
+managed_service: ssh
+
+packages:
+  - curl
+  - tmux
+  - vim
+  - wget
+
+system_timezone: Utc/UTC
+
