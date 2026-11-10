@@ -17,18 +17,18 @@
 
     - name: Set the system timezone
       ansible.builtin.file:
-        src "/usr/share/zoneinfo/{{ ayatwm_timezone }}"
+        src: "/usr/share/zoneinfo/{{ system_timezone }}"
         dest: /etc/localtime
         state: link
         force: true
 
     - name: Create the admin user
       ansible.builtin.user:
-      name: "{{ admin-user }}"
-      groups: "{{ admin_group }}"
-      append: true
-      shell: /bin/bash
-      create_home: true
+        name: "{{ admin_user }}"
+        groups: "{{ admin_group }}"
+        append: true
+        shell: /bin/bash
+        create_home: true
 
    - name: Allow the admin group acces to sudo without a password
      ansible.builtin.copy:
@@ -63,5 +63,5 @@
         name: ansible-pull
         user: root
         minute: "*/30"
-        job: "/usr/bin/ansible-pull -o -U {{ ansible_pull_repo }} >> /var/log/ansible-practice.log"
+        job: "/usr/bin/ansible-pull -o -U {{ ansible_practice_repo }} >> /var/log/ansible-practice.log"
         cron_file: ansible-practice
